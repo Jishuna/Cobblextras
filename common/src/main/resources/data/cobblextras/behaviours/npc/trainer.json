@@ -1,0 +1,56 @@
+{
+  "name": "cobblextras.behaviour.trainer.name",
+  "description": "cobblextras.behaviour.trainer.desc",
+  "entityType": "cobblemon:npc",
+  "configurations": [
+    {
+      "type": "cobblemon:add_memories_and_sensors",
+      "memories": ["cobblextras:battled_players"]
+    },
+    {
+      "type": "add_variables",
+      "variables": [
+        {
+          "variableName": "cannot_battle_message",
+          "category": "cobblextras.entity.variable.category.dialogue",
+          "displayName": "cobblextras.entity.variable.cannot_battle_message.name",
+          "description": "cobblextras.entity.variable.cannot_battle_message.desc",
+          "type": "TEXT",
+          "defaultValue": ""
+        },
+        {
+          "variableName": "already_defeated_message",
+          "category": "cobblextras.entity.variable.category.dialogue",
+          "displayName": "cobblextras.entity.variable.already_defeated_message.name",
+          "description": "cobblextras.entity.variable.already_defeated_message.desc",
+          "type": "TEXT",
+          "defaultValue": ""
+        },
+        {
+          "variableName": "interact_message",
+          "category": "cobblextras.entity.variable.category.dialogue",
+          "displayName": "cobblextras.entity.variable.interact_message.name",
+          "description": "cobblextras.entity.variable.interact_message.desc",
+          "type": "TEXT",
+          "defaultValue": ""
+        },
+        {
+          "variableName": "victory_message",
+          "category": "cobblextras.entity.variable.category.dialogue",
+          "displayName": "cobblextras.entity.variable.victory_message.name",
+          "description": "cobblextras.entity.variable.victory_message.desc",
+          "type": "TEXT",
+          "defaultValue": ""
+        },
+        {
+          "variableName": "defeat_message",
+          "category": "cobblextras.entity.variable.category.dialogue",
+          "displayName": "cobblextras.entity.variable.defeat_message.name",
+          "description": "cobblextras.entity.variable.defeat_message.desc",
+          "type": "TEXT",
+          "defaultValue": ""
+        }
+      ]
+    }
+  ]
+}

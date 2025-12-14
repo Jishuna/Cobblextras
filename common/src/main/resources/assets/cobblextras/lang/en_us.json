@@ -1,0 +1,6 @@
+{
+  "cobblextras.behaviour.trainer.name": "Trainer",
+  "cobblextras.behaviour.trainer.desc": "Allows an NPC to remember who it has battled and provides dialogue options for interacting with the player",
+
+  "cobblextras.entity.variable.category.dialogue": "Dialogue"
+}

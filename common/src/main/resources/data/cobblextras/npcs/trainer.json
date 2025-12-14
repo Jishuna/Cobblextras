@@ -1,0 +1,9 @@
+{
+  "hitbox": "player",
+  "names": [
+    "Red"
+  ],
+  "interaction": {
+    "type": "trainer"
+  }
+}
