@@ -18,10 +18,10 @@ class TrainerInteractionConfiguration(
 ) : NPCInteractConfiguration {
 
     override fun interact(npc: NPCEntity, player: ServerPlayer): Boolean {
-        val canBattle = Utils.canBattle(player, npc, BattleFormat.GEN_9_SINGLES)
+        val format = BattleFormat.fromFormatIdentifier(npc.config.map["battle_format"]?.asString() ?: "")
+        val canBattle = Utils.canBattle(player, npc, format)
         val defeated = TrainerManager.battledPlayers[npc.uuid]?.contains(player.uuid) ?: false
 
-        val interactMessage = npc.config.map["interact_message"]?.asString()?.text() ?: "".text()
         val cannotBattleMessage = npc.config.map["cannot_battle_message"]?.asString()?.text() ?: "".text()
         val alreadyDefeatedMessage = npc.config.map["already_defeated_message"]?.asString()?.text() ?: "".text()
 
@@ -29,19 +29,18 @@ class TrainerInteractionConfiguration(
             Utils.showDialogue(
                 player,
                 npc,
-                if (!canBattle) cannotBattleMessage else alreadyDefeatedMessage,
-                DialogueNoInput()
+                if (!canBattle) cannotBattleMessage else alreadyDefeatedMessage
             )
             return true
         }
+
+        val interactMessage = npc.config.map["interact_message"]?.asString()?.text() ?: "".text()
 
         Utils.showDialogue(
             player,
             npc,
             interactMessage,
-            DialogueNoInput(FunctionDialogueAction { _, _ ->
-                pvt(player, npc)
-            })
+            DialogueNoInput(FunctionDialogueAction { _, _ -> pvt(player, npc, format) })
         )
 
         return true

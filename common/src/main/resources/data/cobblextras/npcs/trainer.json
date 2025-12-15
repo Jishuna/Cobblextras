@@ -1,9 +1,24 @@
 {
   "hitbox": "player",
+  "presets": [],
   "names": [
-    "Red"
+    "Red",
+    "Blue"
   ],
   "interaction": {
     "type": "trainer"
-  }
+  },
+  "canDespawn": false,
+  "isMovable": false,
+  "isInvulnerable": true,
+  "isLeashable": false,
+  "allowProjectileHits": false,
+  "behaviours": [
+    {
+      "type": "apply_behaviours",
+      "presets": [
+        "cobblextras:trainer"
+      ]
+    }
+  ]
 }

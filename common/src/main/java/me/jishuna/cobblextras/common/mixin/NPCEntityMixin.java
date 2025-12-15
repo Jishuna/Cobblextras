@@ -26,10 +26,7 @@ public abstract class NPCEntityMixin extends AgeableMob {
         super(entityType, level);
     }
 
-    @Inject(
-            method = "saveWithoutId",
-            at = @At("TAIL")
-    )
+    @Inject(method = "saveWithoutId", at = @At("TAIL"))
     private void onSaveWithoutId(CompoundTag nbt, CallbackInfoReturnable<CompoundTag> cir) {
         CompoundTag returned = cir.getReturnValue();
 
@@ -41,10 +38,7 @@ public abstract class NPCEntityMixin extends AgeableMob {
         }
     }
 
-    @Inject(
-            method = "load",
-            at = @At("TAIL")
-    )
+    @Inject(method = "load", at = @At("TAIL"))
     private void onLoad(CompoundTag nbt, CallbackInfo ci) {
         if (nbt.contains("battled_players")) {
             DataResult<Set<UUID>> readResult = UUIDUtil.CODEC_SET.parse(NbtOps.INSTANCE, nbt.get("battled_players"));

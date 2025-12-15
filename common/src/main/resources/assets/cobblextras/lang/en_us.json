@@ -1,6 +1,24 @@
 {
   "cobblextras.behaviour.trainer.name": "Trainer",
-  "cobblextras.behaviour.trainer.desc": "Allows an NPC to remember who it has battled and provides dialogue options for interacting with the player",
+  "cobblextras.behaviour.trainer.desc": "Allows an NPC to remember who it has battled and provides dialogue options for interacting with the player.",
 
-  "cobblextras.entity.variable.category.dialogue": "Dialogue"
+  "cobblextras.entity.variable.category.dialogue": "Dialogue",
+
+  "cobblextras.entity.variable.cannot_battle_message.name": "Cannot Battle Message",
+  "cobblextras.entity.variable.cannot_battle_message.desc": "The message to use when this trainer is unable to battle a player for any reason.",
+
+  "cobblextras.entity.variable.already_defeated_message.name": "Already Defeated Message",
+  "cobblextras.entity.variable.already_defeated_message.desc": "The message to use when a player has already defeated this trainer.",
+
+  "cobblextras.entity.variable.interact_message.name": "Interact Message",
+  "cobblextras.entity.variable.interact_message.desc": "The message to use when a player interacts with this trainer before a battle.",
+
+  "cobblextras.entity.variable.victory_message.name": "Victory Message",
+  "cobblextras.entity.variable.victory_message.desc": "The message to use when this trainer defeats a player.",
+
+  "cobblextras.entity.variable.defeat_message.name": "Defeat Message",
+  "cobblextras.entity.variable.defeat_message.desc": "The message to use when this trainer loses to a player.",
+
+  "cobblextras.entity.variable.battle_format.name": "Battle Format",
+  "cobblextras.entity.variable.battle_format.desc": "What format to use for battles with this trainer."
 }

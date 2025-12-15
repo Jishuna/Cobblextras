@@ -13,6 +13,8 @@ import com.cobblemon.mod.common.battles.BattleSide
 import com.cobblemon.mod.common.battles.actor.PlayerBattleActor
 import com.cobblemon.mod.common.entity.npc.NPCBattleActor
 import com.cobblemon.mod.common.entity.npc.NPCEntity
+import com.cobblemon.mod.common.util.isInBattle
+import com.cobblemon.mod.common.util.isPartyBusy
 import com.cobblemon.mod.common.util.party
 import com.cobblemon.mod.common.util.update
 import net.minecraft.network.chat.MutableComponent
@@ -21,6 +23,7 @@ import net.minecraft.server.level.ServerPlayer
 object Utils {
     fun canBattle(player: ServerPlayer, npc: NPCEntity, format: BattleFormat): Boolean {
         if (player.party().filter { it.isFullHealth() }.size < format.battleType.slotsPerActor) return false
+        if (player.isPartyBusy() || player.isInBattle()) return false;
         if (npc.party == null || npc.party!!.filter { it.isFullHealth() }.size < format.battleType.slotsPerActor) return false
 
         return true
@@ -30,7 +33,7 @@ object Utils {
         player: ServerPlayer,
         npc: NPCEntity,
         message: MutableComponent,
-        input: DialogueInput,
+        input: DialogueInput = DialogueNoInput(),
     ) {
         val page = DialoguePage.of(
             speaker = "npc",
@@ -40,12 +43,8 @@ object Utils {
 
         val dialogue = Dialogue.of(
             pages = listOf(page),
-            escapeAction = { dialogue ->
-                dialogue.close()
-            },
-            speakers = mapOf(
-                "npc" to npc.asSpeaker()
-            ),
+            escapeAction = { dialogue -> dialogue.close() },
+            speakers = mapOf("npc" to npc.asSpeaker()),
         )
 
         DialogueManager.startDialogue(player, npc, dialogue)
@@ -56,9 +55,7 @@ object Utils {
         npcEntity: NPCEntity,
         battleFormat: BattleFormat = BattleFormat.GEN_9_SINGLES,
     ) {
-        if (npcEntity.party == null) {
-            return
-        }
+        if (npcEntity.party == null) return
 
         val playerActor =
             PlayerBattleActor(player.uuid, player.party().toBattleTeam(clone = false, healPokemon = false))
@@ -76,17 +73,15 @@ object Utils {
             side2 = BattleSide(npcActor)
         ).ifSuccessful { battle ->
             npcEntity.entityData.update(NPCEntity.BATTLE_IDS) { it + battle.battleId }
-            battle.onEndHandlers.add {
-                handleBattleEnd(it, player, npcEntity)
-            }
+            battle.onEndHandlers.add { handleBattleEnd(it, player, npcEntity) }
         }
     }
 
 
-    fun handleBattleEnd(battle: PokemonBattle, player: ServerPlayer, npc: NPCEntity) {
+    private fun handleBattleEnd(battle: PokemonBattle, player: ServerPlayer, npc: NPCEntity) {
         val npcLost = battle.losers.any { it.uuid == npc.uuid }
         val message = npc.config.map[if (npcLost) "defeat_message" else "victory_message"]?.asString()?.text() ?: "".text()
-        showDialogue(player, npc, message, DialogueNoInput())
+        showDialogue(player, npc, message)
 
         if (npcLost) {
             TrainerManager.battledPlayers.getOrPut(npc.uuid) { mutableSetOf() }.add(player.uuid)

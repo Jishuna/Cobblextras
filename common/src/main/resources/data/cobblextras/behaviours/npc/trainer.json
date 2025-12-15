@@ -4,10 +4,6 @@
   "entityType": "cobblemon:npc",
   "configurations": [
     {
-      "type": "cobblemon:add_memories_and_sensors",
-      "memories": ["cobblextras:battled_players"]
-    },
-    {
       "type": "add_variables",
       "variables": [
         {
@@ -16,7 +12,7 @@
           "displayName": "cobblextras.entity.variable.cannot_battle_message.name",
           "description": "cobblextras.entity.variable.cannot_battle_message.desc",
           "type": "TEXT",
-          "defaultValue": ""
+          "defaultValue": "Sorry, I cannot battle you right now."
         },
         {
           "variableName": "already_defeated_message",
@@ -24,7 +20,7 @@
           "displayName": "cobblextras.entity.variable.already_defeated_message.name",
           "description": "cobblextras.entity.variable.already_defeated_message.desc",
           "type": "TEXT",
-          "defaultValue": ""
+          "defaultValue": "That was a great battle, let's do it again sometime!"
         },
         {
           "variableName": "interact_message",
@@ -32,7 +28,7 @@
           "displayName": "cobblextras.entity.variable.interact_message.name",
           "description": "cobblextras.entity.variable.interact_message.desc",
           "type": "TEXT",
-          "defaultValue": ""
+          "defaultValue": "Hey there, let's have a battle!"
         },
         {
           "variableName": "victory_message",
@@ -40,7 +36,7 @@
           "displayName": "cobblextras.entity.variable.victory_message.name",
           "description": "cobblextras.entity.variable.victory_message.desc",
           "type": "TEXT",
-          "defaultValue": ""
+          "defaultValue": "Yay I won, better luck next time!"
         },
         {
           "variableName": "defeat_message",
@@ -48,7 +44,15 @@
           "displayName": "cobblextras.entity.variable.defeat_message.name",
           "description": "cobblextras.entity.variable.defeat_message.desc",
           "type": "TEXT",
-          "defaultValue": ""
+          "defaultValue": "Wow, your team is strong!"
+        },
+        {
+          "variableName": "battle_format",
+          "category": "cobblemon.entity.variable.category.battling",
+          "displayName": "cobblextras.entity.variable.battle_format.name",
+          "description": "cobblextras.entity.variable.battle_format.desc",
+          "type": "TEXT",
+          "defaultValue": "singles"
         }
       ]
     }
