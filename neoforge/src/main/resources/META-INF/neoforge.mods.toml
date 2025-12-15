@@ -8,7 +8,7 @@ version = "${version}"
 displayName = "Cobblextras"
 authors = "Jishuna"
 description = '''
-A very cool multi-line description!
+Miscellaneous extra features for the Cobblemon mod.
 '''
 
 [[mixins]]

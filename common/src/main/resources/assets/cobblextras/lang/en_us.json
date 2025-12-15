@@ -20,5 +20,9 @@
   "cobblextras.entity.variable.defeat_message.desc": "The message to use when this trainer loses to a player.",
 
   "cobblextras.entity.variable.battle_format.name": "Battle Format",
-  "cobblextras.entity.variable.battle_format.desc": "What format to use for battles with this trainer."
+  "cobblextras.entity.variable.battle_format.desc": "What format to use for battles with this trainer.",
+
+  "block.cobblextras.spawn_marker_1": "Spawn Marker",
+  "block.cobblextras.spawn_marker_2": "Spawn Marker",
+  "block.cobblextras.spawn_marker_3": "Spawn Marker"
 }
