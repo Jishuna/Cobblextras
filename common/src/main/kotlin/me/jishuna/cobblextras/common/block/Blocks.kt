@@ -12,7 +12,7 @@ import java.util.function.Function
 object Blocks {
 
     @JvmField
-    val SPAWN_MARKERS = mutableSetOf<Block>()
+    val INVISIBLE_PARTICLE_BLOCKS = mutableSetOf<Block>()
 
     @JvmField
     val SPAWN_MARKER_1: Block = spawnMarker("cobblextras:spawn_marker_1")
@@ -23,7 +23,22 @@ object Blocks {
     @JvmField
     val SPAWN_MARKER_3: Block = spawnMarker("cobblextras:spawn_marker_3")
 
+    @JvmField
+    val WARP_BLOCK: Block = Blocks.register(
+        "cobblextras:warp_block", WarpBlock(
+            BlockBehaviour.Properties.of()
+                .replaceable()
+                .strength(-1.0f, 3600000.8f)
+                .mapColor(MapColor.NONE)
+                .noLootTable()
+                .noOcclusion()
+                .noCollission()
+        )
+    )
+
+    @JvmStatic
     fun touch() {
+        INVISIBLE_PARTICLE_BLOCKS.add(WARP_BLOCK)
     }
 
     private fun spawnMarker(id: String): Block {
@@ -39,7 +54,7 @@ object Blocks {
             )
         )
 
-        SPAWN_MARKERS.add(block)
+        INVISIBLE_PARTICLE_BLOCKS.add(block)
         return block;
     }
 

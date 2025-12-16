@@ -37,7 +37,7 @@ public abstract class ClientLevelMixin extends Level {
         if (this.minecraft.gameMode.getPlayerMode() == GameType.CREATIVE) {
             ItemStack itemStack = this.minecraft.player.getMainHandItem();
             Item item = itemStack.getItem();
-            if (item instanceof BlockItem blockItem && Blocks.SPAWN_MARKERS.contains(blockItem.getBlock())) {
+            if (item instanceof BlockItem blockItem && Blocks.INVISIBLE_PARTICLE_BLOCKS.contains(blockItem.getBlock())) {
                 ci.setReturnValue(blockItem.getBlock());
             }
         }

@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.npc.configuration.NPCInteractConfiguration;
 import me.jishuna.cobblextras.common.Cobblextras;
 import me.jishuna.cobblextras.common.ai.BattlePlayerTaskConfig;
 import me.jishuna.cobblextras.common.block.Blocks;
+import me.jishuna.cobblextras.common.block.entity.BlockEntities;
 import me.jishuna.cobblextras.common.interact.TrainerInteractionConfiguration;
 import me.jishuna.cobblextras.common.item.Items;
 import net.minecraft.network.chat.Component;
@@ -23,7 +24,8 @@ public class CobbleExtrasNeoforge {
 
     @SubscribeEvent
     private static void onRegister(RegisterEvent event) {
-        Blocks.INSTANCE.touch();
-        Items.INSTANCE.touch();
+        Blocks.touch();
+        BlockEntities.touch();
+        Items.touch();
     }
 }

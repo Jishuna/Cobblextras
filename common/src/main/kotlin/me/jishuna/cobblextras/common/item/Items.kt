@@ -17,7 +17,10 @@ object Items {
     @JvmField
     val SPAWN_MARKER_3: Item = Items.registerBlock(BlockItem(Blocks.SPAWN_MARKER_3, (Item.Properties()).rarity(Rarity.EPIC)))
 
-    fun touch() {
+    @JvmField
+    val WARP_BLOCK: Item = Items.registerBlock(BlockItem(Blocks.WARP_BLOCK, (Item.Properties()).rarity(Rarity.EPIC)))
 
+    @JvmStatic
+    fun touch() {
     }
 }

@@ -24,5 +24,6 @@
 
   "block.cobblextras.spawn_marker_1": "Spawn Marker",
   "block.cobblextras.spawn_marker_2": "Spawn Marker",
-  "block.cobblextras.spawn_marker_3": "Spawn Marker"
+  "block.cobblextras.spawn_marker_3": "Spawn Marker",
+  "block.cobblextras.warp_block": "Warp Block"
 }
