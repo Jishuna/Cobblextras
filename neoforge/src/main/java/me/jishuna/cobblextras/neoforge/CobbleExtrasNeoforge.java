@@ -9,9 +9,11 @@ import me.jishuna.cobblextras.common.block.entity.BlockEntities;
 import me.jishuna.cobblextras.common.interact.TrainerInteractionConfiguration;
 import me.jishuna.cobblextras.common.item.Items;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(Cobblextras.MOD_ID)
@@ -27,5 +29,12 @@ public class CobbleExtrasNeoforge {
         Blocks.touch();
         BlockEntities.touch();
         Items.touch();
+    }
+
+    @SubscribeEvent
+    public static void buildContents(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
+            Blocks.INVISIBLE_PARTICLE_BLOCKS.forEach(event::accept);
+        }
     }
 }

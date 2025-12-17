@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Set;
 import java.util.UUID;
 
-@Mixin(NPCEntity.class)
+@Mixin(value = NPCEntity.class, remap = false)
 public abstract class NPCEntityMixin extends AgeableMob {
 
     private NPCEntityMixin(EntityType<? extends AgeableMob> entityType, Level level) {
