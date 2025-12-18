@@ -34,3 +34,10 @@ mandatory = true
 versionRange = "[1.7.0,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.cobblextras]]
+modId = "cobbledollars"
+mandatory = true
+versionRange = "[2.0.0,)"
+ordering = "AFTER"
+side = "BOTH"

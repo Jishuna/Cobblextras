@@ -36,6 +36,14 @@ object Blocks {
         )
     )
 
+    @JvmField
+    val MOVEMENT_PAD: Block = Blocks.register(
+        "cobblextras:movement_pad", MovementPadBlock(
+            BlockBehaviour.Properties.of()
+                .noCollission()
+        )
+    )
+
     @JvmStatic
     fun touch() {
         INVISIBLE_PARTICLE_BLOCKS.add(WARP_BLOCK)

@@ -34,10 +34,12 @@ dependencies {
     neoForge("net.neoforged:neoforge:${property("neoforge_version")}")
 
     modImplementation("com.cobblemon:neoforge:${property("cobblemon_version")}") { isTransitive = false }
-    //Needed for cobblemon
-    forgeRuntimeLibrary("thedarkcolour:kotlinforforge-neoforge:${property("kotlin_for_forge_version")}") {
+    modImplementation("curse.maven:cobbledollars-859232:6604564")
+    implementation("thedarkcolour:kotlinforforge-neoforge:${property("kotlin_for_forge_version")}") {
         exclude("net.neoforged.fancymodloader", "loader")
     }
+
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.20")
 
     implementation(project(":common", configuration = "namedElements"))
     "developmentNeoForge"(project(":common", configuration = "namedElements")) {

@@ -53,6 +53,14 @@
           "description": "cobblextras.entity.variable.battle_format.desc",
           "type": "TEXT",
           "defaultValue": "singles"
+        },
+        {
+          "variableName": "money_reward",
+          "category": "cobblemon.entity.variable.category.battling",
+          "displayName": "cobblextras.entity.variable.money_reward.name",
+          "description": "cobblextras.entity.variable.money_reward.desc",
+          "type": "NUMBER",
+          "defaultValue": "100"
         }
       ]
     }

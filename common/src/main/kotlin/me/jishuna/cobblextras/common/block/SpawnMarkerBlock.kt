@@ -6,6 +6,8 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.BlockGetter
 import net.minecraft.world.level.block.BarrierBlock
+import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.DoorBlock
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.phys.shapes.CollisionContext
 import net.minecraft.world.phys.shapes.Shapes
@@ -26,6 +28,7 @@ class SpawnMarkerBlock(
         blockPos: BlockPos,
         collisionContext: CollisionContext,
     ): VoxelShape {
+        Blocks.YELLOW_GLAZED_TERRACOTTA
         return if (collisionContext.isHoldingItem(item)) Shapes.block() else Shapes.empty()
     }
 }

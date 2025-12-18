@@ -1,9 +1,7 @@
 package me.jishuna.cobblextras.neoforge;
 
-import com.cobblemon.mod.common.api.ai.config.task.TaskConfig;
 import com.cobblemon.mod.common.api.npc.configuration.NPCInteractConfiguration;
 import me.jishuna.cobblextras.common.Cobblextras;
-import me.jishuna.cobblextras.common.ai.BattlePlayerTaskConfig;
 import me.jishuna.cobblextras.common.block.Blocks;
 import me.jishuna.cobblextras.common.block.entity.BlockEntities;
 import me.jishuna.cobblextras.common.interact.TrainerInteractionConfiguration;
@@ -20,7 +18,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 @EventBusSubscriber
 public class CobbleExtrasNeoforge {
     public CobbleExtrasNeoforge() {
-        TaskConfig.Companion.getTypes().put(Cobblextras.key("battle_player"), BattlePlayerTaskConfig.class);
+        // TaskConfig.Companion.getTypes().put(Cobblextras.key("battle_player"), BattlePlayerTaskConfig.class);
         NPCInteractConfiguration.Companion.register("trainer", Component.literal("Trainer"), TrainerInteractionConfiguration.class);
     }
 

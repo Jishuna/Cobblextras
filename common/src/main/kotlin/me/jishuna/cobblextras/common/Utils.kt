@@ -17,8 +17,10 @@ import com.cobblemon.mod.common.util.isInBattle
 import com.cobblemon.mod.common.util.isPartyBusy
 import com.cobblemon.mod.common.util.party
 import com.cobblemon.mod.common.util.update
+import fr.harmex.cobbledollars.common.utils.extensions.cobbleDollars
 import net.minecraft.network.chat.MutableComponent
 import net.minecraft.server.level.ServerPlayer
+import java.math.BigDecimal
 
 object Utils {
     fun canBattle(player: ServerPlayer, npc: NPCEntity, format: BattleFormat): Boolean {
@@ -85,6 +87,11 @@ object Utils {
 
         if (npcLost) {
             TrainerManager.battledPlayers.getOrPut(npc.uuid) { mutableSetOf() }.add(player.uuid)
+            val money = npc.config.map["money_reward"]?.asDouble() ?: -1.0
+            if (money > 0) {
+                val balance = player.cobbleDollars.add(BigDecimal.valueOf(money).toBigInteger())
+                player.cobbleDollars = balance
+            }
         }
     }
 }

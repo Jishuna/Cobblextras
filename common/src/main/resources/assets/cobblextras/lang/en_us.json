@@ -22,8 +22,12 @@
   "cobblextras.entity.variable.battle_format.name": "Battle Format",
   "cobblextras.entity.variable.battle_format.desc": "What format to use for battles with this trainer.",
 
+  "cobblextras.entity.variable.money_reward.name": "Money Reward",
+  "cobblextras.entity.variable.money_reward.desc": "How much money to award to players that win a battle against this trainer.",
+
   "block.cobblextras.spawn_marker_1": "Spawn Marker",
   "block.cobblextras.spawn_marker_2": "Spawn Marker",
   "block.cobblextras.spawn_marker_3": "Spawn Marker",
-  "block.cobblextras.warp_block": "Warp Block"
+  "block.cobblextras.warp_block": "Warp Block",
+  "block.cobblextras.movement_pad": "Movement Pad"
 }

@@ -16,6 +16,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${property("fabric_loader_version")}")
     mappings(loom.officialMojangMappings())
     modImplementation("com.cobblemon:mod:${property("cobblemon_version")}") { isTransitive = false }
+    modImplementation("curse.maven:cobbledollars-859232:6604564")
     modApi("com.bedrockk:molang:1.1.20")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${property("junit_version")}")
