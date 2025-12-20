@@ -25,7 +25,7 @@ import java.math.BigDecimal
 object Utils {
     fun canBattle(player: ServerPlayer, npc: NPCEntity, format: BattleFormat): Boolean {
         if (player.party().filter { it.isFullHealth() }.size < format.battleType.slotsPerActor) return false
-        if (player.isPartyBusy() || player.isInBattle()) return false;
+        if (player.isPartyBusy() || player.isInBattle()) return false
         if (npc.party == null || npc.party!!.filter { it.isFullHealth() }.size < format.battleType.slotsPerActor) return false
 
         return true
@@ -86,7 +86,7 @@ object Utils {
         showDialogue(player, npc, message)
 
         if (npcLost) {
-            TrainerManager.battledPlayers.getOrPut(npc.uuid) { mutableSetOf() }.add(player.uuid)
+            TrainerManager.playerData.getOrPut(player.uuid) { mutableSetOf() }.add(npc.uuid)
             val money = npc.config.map["money_reward"]?.asDouble() ?: -1.0
             if (money > 0) {
                 val balance = player.cobbleDollars.add(BigDecimal.valueOf(money).toBigInteger())

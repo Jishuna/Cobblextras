@@ -2,16 +2,19 @@ package me.jishuna.cobblextras.neoforge;
 
 import com.cobblemon.mod.common.api.npc.configuration.NPCInteractConfiguration;
 import me.jishuna.cobblextras.common.Cobblextras;
+import me.jishuna.cobblextras.common.TrainerManager;
 import me.jishuna.cobblextras.common.block.Blocks;
 import me.jishuna.cobblextras.common.block.entity.BlockEntities;
 import me.jishuna.cobblextras.common.interact.TrainerInteractionConfiguration;
 import me.jishuna.cobblextras.common.item.Items;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(Cobblextras.MOD_ID)
@@ -33,6 +36,20 @@ public class CobbleExtrasNeoforge {
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
             Blocks.INVISIBLE_PARTICLE_BLOCKS.forEach(event::accept);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            TrainerManager.onPlayerLogin(player);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            TrainerManager.onPlayerLogout(player);
         }
     }
 }

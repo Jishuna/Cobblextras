@@ -20,7 +20,7 @@ class TrainerInteractionConfiguration(
     override fun interact(npc: NPCEntity, player: ServerPlayer): Boolean {
         val format = BattleFormat.fromFormatIdentifier(npc.config.map["battle_format"]?.asString() ?: "")
         val canBattle = Utils.canBattle(player, npc, format)
-        val defeated = TrainerManager.battledPlayers[npc.uuid]?.contains(player.uuid) ?: false
+        val defeated = TrainerManager.playerData[player.uuid]?.contains(npc.uuid) ?: false
 
         val cannotBattleMessage = npc.config.map["cannot_battle_message"]?.asString()?.text() ?: "".text()
         val alreadyDefeatedMessage = npc.config.map["already_defeated_message"]?.asString()?.text() ?: "".text()
